@@ -46,8 +46,6 @@ def nFAST(img, threshold=100):
     nb_neighbours = 16
     # number of required neighbours to have a significant variation in light intensity
     req_neighbours = 12
-    # number of feature points researched
-    fp_number = 50
     # threshold in light intensity
     t = threshold
     for i in range(feature_radius, rows-feature_radius):
