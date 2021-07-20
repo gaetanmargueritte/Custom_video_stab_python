@@ -18,18 +18,15 @@ if __name__ == "__main__":
     # get frames count
     #n_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
 
-    n_frames = 500
+    n_frames = 250
     
     print("Number of frames of the video =", n_frames)
     # Get width and height of video stream
     w = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
     h = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
     
-    # Define the codec for output video
-    fourcc = cv2.VideoWriter_fourcc(*'MJPG')
-    
     # Set up output video
-    out = cv2.VideoWriter('video_out.mp4', fourcc, 30, (w, h))
+    out = cv2.VideoWriter('video_out.avi',cv2.VideoWriter_fourcc('M','J','P','G'), 30, (w,h))
     # Read first frame
     _, prev = cap.read() 
     
@@ -107,6 +104,8 @@ if __name__ == "__main__":
         cv2.waitKey(10)
         out.write(frame_out)
 
-    
+     # When everything done, release the video capture and write object
+    cap.release();
+    out.release();
     plt.show()
-
+    
